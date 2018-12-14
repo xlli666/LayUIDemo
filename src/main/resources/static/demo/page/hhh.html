@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>TEST</title>
+    <!-- CSS -->
+    <link rel="stylesheet" href="../../comm/layer/css/layui.css">
+</head>
+<body>
+    <label for="initVal">页面加载时参数：
+        <input id="initVal" type="file" value="${hhh}">
+    </label>
+    <div>
+        <label for="eTel">编号：</label><input id="eId" type="text" maxlength="5">
+    </div>
+    <div>
+        <label for="eId">电话：</label><input id="eTel" type="text" maxlength="11">
+    </div>
+    <p>
+        <button class="layui-btn" data-type="reload" style="height: 30px;width: 60px; text-align: center">搜索</button>
+        <input type="button" value="PageHelper分页查询" id="temp">
+    </p>
+    <div>
+        <label for="result">查询结果：</label><textarea id="result" rows="10" cols="50"></textarea>
+    </div>
+
+    <!-- layUI -->
+    <table id="test"></table>
+
+    <!-- JS -->
+    <script src="../../comm/jquery-3.3.1.min.js"></script>
+    <script src="../../comm/layer/layui.js"></script>
+    <script src="../../comm/js/comm-form.js"></script>
+    <script src="../js/demo.js"></script>
+    <script src="../js/layUIDemo.js"></script>
+</body>
+</html>
