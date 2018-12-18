@@ -7,13 +7,17 @@
     <link rel="stylesheet" href="../../comm/layer/css/layui.css">
 </head>
 <body>
-<button class="layui-btn" id="uploadLayUI" type="button">上传图片</button>
 
-<form id="uploadForm" enctype="multipart/form-data">
-    <input type="file" id="fileName" name="fileName">
-    <button id="uploadJquery" class="layui-btn" style="text-align: center">图片上传</button>
-</form>
+<div style="margin: 10px 0 0 10px">
+    <button class="layui-btn" id="uploadLayUI" type="button">LayUI 上传图片</button>
+</div>
 
+<div style="margin: 10px 0 0 10px">
+    <form id="uploadForm" enctype="multipart/form-data">
+        <input type="file" id="file" name="file">
+    </form>
+    <button id="uploadJquery" class="layui-btn" style="text-align: center">input file 上传</button>
+</div>
 <!-- JS -->
 <script src="../../comm/jquery-3.3.1.min.js"></script>
 <script src="../../comm/layer/layui.js"></script>
