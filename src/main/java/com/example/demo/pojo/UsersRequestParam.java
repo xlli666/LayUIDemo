@@ -1,6 +1,6 @@
 package com.example.demo.pojo;
 
-public class RequestEmpParam {
+public class UsersRequestParam {
     private String eId;
     private String eTel;
 

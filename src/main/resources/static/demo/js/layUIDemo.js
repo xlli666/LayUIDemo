@@ -5,9 +5,13 @@ layui.use('table', function () {
         url: '/demo/query22',
         //url: 'http://127.0.0.1:10010/api/item/layUI',
         cols: [[
-            {field: 'id', title: '编号', sort: true},
-            {field: 'name', title: '姓名'},
-            {field: 'tel', title: '电话'}
+            {field: 'id', title: '主键'},
+            {field: 'roleId', title: '角色'},
+            {field: 'number', title: '编号', sort: true},
+            {field: 'name', title: '姓名', sort: true},
+            {field: 'tel', title: '电话'},
+            {field: 'note', title: '备注'},
+            {field: 'createTime', title: '注册时间'}
         ]],
         id: 'forReload',
         parseData: function(res){
