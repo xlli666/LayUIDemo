@@ -1,7 +1,13 @@
 <?xml version="1.0" encoding="UTF-8" ?>
 <!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
-<mapper namespace="com.example.demo.dao.UsersDao" >
-    <select id="selectUsersExt" resultType="com.example.demo.pojo.UsersDomain">
-        select * from tb_users
+<mapper namespace="com.example.demo.dao.UserDao" >
+    <select id="selectUsersExt" parameterType="com.example.demo.pojo.UserRequestParam" resultType="com.example.demo.pojo.UserDomain">
+        select * from tb_users where 1=1
+        <if test="numberParam != null and numberParam != ''">
+            and number=#{numberParam}
+        </if>
+        <if test="telParam != null and telParam != ''">
+            and tel=#{telParam}
+        </if>
     </select>
 </mapper>

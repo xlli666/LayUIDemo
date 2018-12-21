@@ -1,7 +1,7 @@
 package com.example.demo;
 
-import com.example.demo.pojo.UsersDomain;
-import com.example.demo.service.UsersService;
+import com.example.demo.pojo.UserDomain;
+import com.example.demo.service.UserService;
 import org.junit.Test;
 import org.junit.runner.RunWith;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -17,14 +17,14 @@ import java.util.Map;
 public class DemoApplicationTests {
 
     @Autowired
-    private UsersService usersService;
+    private UserService userService;
 
     @Test
     public void contextLoads() {
         Map<String,Object> map = new HashMap<>();
         map.put("start",0);
         map.put("size",8);
-        List<UsersDomain> list = usersService.findAllUser(1,1).getList();
+        List<UserDomain> list = userService.findAllUser(1,1).getList();
         System.out.println("size:"+list.size());
         System.out.println("-----测试完毕-------");
     }

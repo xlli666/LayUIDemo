@@ -35,12 +35,13 @@ layui.use('table', function () {
 
     var active = {
         reload: function(){
-            var eId = $('#eId').val();
-            var eTel = $('#eTel').val();
+            var uNumber = $('#uNumber').val();
+            var uTel = $('#uTel').val();
             //执行重载
             tableVar.reload('forReload', {
                 where: {
-                    eId: eId,
+                    numberParam: uNumber,
+                    telParam: uTel
                 },
                 parseData: function(res){
                     return {

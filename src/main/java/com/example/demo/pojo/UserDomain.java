@@ -2,7 +2,7 @@ package com.example.demo.pojo;
 
 import java.util.Date;
 
-public class UsersDomain {
+public class UserDomain {
     private Long id;
     private String roleId;
     private String number;
