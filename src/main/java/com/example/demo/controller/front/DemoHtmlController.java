@@ -27,4 +27,9 @@ public class DemoHtmlController {
     public ModelAndView uploadHtml() {
         return new ModelAndView("/demo/page/upload");
     }
+
+    @RequestMapping("/index")
+    public ModelAndView dashboardHtml() {
+        return new ModelAndView("/demo/page/index");
+    }
 }

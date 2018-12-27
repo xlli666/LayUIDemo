@@ -4,3 +4,6 @@ function getFormData() {
     inputObj.eTel=$("#eTel").val();
     return inputObj;
 }
+function iframeChg(url) {
+    $("#iFrame").attr("src", url);
+}
