@@ -6,7 +6,7 @@ import org.springframework.web.bind.annotation.RequestMapping;
 
 @Controller
 @RequestMapping("/")
-public class DemoThController {
+public class ThymeleafController {
     @RequestMapping("hello")
     public String sayHello(Model model){
         model.addAttribute("hhh","HHH");
