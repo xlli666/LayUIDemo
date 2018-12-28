@@ -2,9 +2,6 @@ $(function () {
     $('#temp').on('click',function () {
         clickRequest();
     });
-    $('#test').on('click',function () {
-        alert('hello');
-    });
 });
 function clickRequest() {
     var objData = getFormData();
