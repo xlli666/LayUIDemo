@@ -1,10 +1,10 @@
 layui.config({
-    base: '/comm/js/' //navbar组件js所在目录
+    base: '/comm/js/modules/' //navbar组件js所在目录
 }).use('navbar', function () {
     var mNavBar = layui.navbar();
     mNavBar.set({
         elem: '#nav',
-        url: '/comm/js/menu.json' //数据源地址
+        url: '/comm/js/modules/menu.json' //数据源地址
         //url: '/menu/query' //数据源Controller处理
     });
     mNavBar.render();
