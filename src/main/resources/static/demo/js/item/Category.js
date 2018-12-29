@@ -1,3 +1,3 @@
 function categoryAlert(msg) {
-    alert(getProjRoot()+"::"+msg);
+    alert(getRootPath()+"::"+msg);
 }
