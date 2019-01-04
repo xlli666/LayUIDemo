@@ -3,7 +3,7 @@ package com.example.demo.controller.back;
 import com.example.demo.pojo.UserDomain;
 import com.example.demo.pojo.UserRequestParam;
 import com.example.demo.service.UserService;
-import com.example.demo.util.LayUITable;
+import com.example.demo.util.LayUISuccess;
 import com.github.pagehelper.PageInfo;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
@@ -39,7 +39,7 @@ public class UserController {
         System.out.println("编号: " + userParam.getNumberParam() + ", 电话: " + userParam.getTelParam());
 
         PageInfo<UserDomain> helperResult =  userService.findUsersBy(pageNum, pageSize, userParam);
-        return LayUITable.tableData(helperResult.getTotal(), helperResult.getList());
+        return LayUISuccess.tableData(helperResult.getTotal(), helperResult.getList());
 
     }
 }

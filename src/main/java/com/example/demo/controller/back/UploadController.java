@@ -1,6 +1,6 @@
 package com.example.demo.controller.back;
 
-import com.example.demo.util.LayUIUpload;
+import com.example.demo.util.LayUISuccess;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.ResponseBody;
@@ -13,6 +13,6 @@ public class UploadController {
     @ResponseBody
     public Object uploadImg(MultipartFile file){
         System.out.println(file.getOriginalFilename());
-        return LayUIUpload.uploadResData(file.getOriginalFilename());
+        return LayUISuccess.uploadResData(file.getOriginalFilename());
     }
 }
