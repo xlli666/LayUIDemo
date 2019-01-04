@@ -7,13 +7,145 @@
     <link rel="stylesheet" href="../../../comm/layer/css/layui.css">
 </head>
 <body>
-<div>
-    <label for="cid" class="layui-form-label">商品类别：</label><input id="cid" class="layui-text">
-    <button class="layui-btn">查看</button>
-    <button class="layui-btn">添加</button>
-    <button class="layui-btn">修改</button>
-    <button class="layui-btn">删除</button>
-</div>
+<form class="layui-form layui-form-pane" action="" lay-filter="queryForm">
+    <div class="layui-form-item">
+        <label class="layui-form-label" for="category">商品类别<span style="color: red">*</span>：</label>
+        <div class="layui-input-inline">
+            <!-- 后续需要修改为动态加载 -->
+            <select name="category" id="category" lay-verify="required">
+                <option value="">请选择商品类别</option>
+                <optgroup label="设备">
+                    <option value="1">手机</option>
+                    <option value="2">通讯</option>
+                </optgroup>
+                <optgroup label="测试">
+                    <option value="3">测试</option>
+                </optgroup>
+            </select>
+        </div>
+        <button class="layui-btn" lay-submit lay-filter="formSpecQuery">查看</button>
+    </div>
+
+    <div class="layui-form-item layui-form-text">
+        <label class="layui-form-label" for="result">查询结果</label>
+        <div class="layui-input-block">
+            <textarea class="layui-textarea" id="result"></textarea>
+        </div>
+    </div>
+
+</form>
+
+<fieldset class="layui-elem-field layui-field-title">
+    <legend>规格参数组信息修改</legend>
+</fieldset>
+
+<form class="layui-form" action="" lay-filter="modifyForm">
+    <div class="layui-form-item">
+        <button class="layui-btn" lay-submit lay-filter="formSpecAdd">添加</button>
+        <button class="layui-btn" lay-submit lay-filter="formSpecUpdate">修改</button>
+        <button class="layui-btn" lay-submit lay-filter="formSpecDelete">删除</button>
+        <button class="layui-btn layui-btn-primary" type="reset" >重置</button>
+    </div>
+
+    <fieldset class="layui-elem-field layui-field-title">
+        <legend>分组1：主体参数</legend>
+    </fieldset>
+    <fieldset class="layui-elem-field">
+        <legend>参数1</legend>
+        <div style="margin-top: 20px">
+            <div class="layui-form-item">
+                <div class="layui-inline">
+                    <label class="layui-form-label" for="k">参数名称：</label>
+                    <div class="layui-input-inline">
+                        <input name="k" id="k" class="layui-input" type="text">
+                    </div>
+                </div>
+                <div class="layui-inline">
+                    <label class="layui-form-label">searchable：</label>
+                    <div class="layui-input-inline">
+                        <input name="searchable" value="true"  type="checkbox" lay-skin="primary">
+                    </div>
+                </div>
+                <div class="layui-inline">
+                    <label class="layui-form-label">global：</label>
+                    <div class="layui-input-inline">
+                        <input name="global" value="true"  type="checkbox" lay-skin="primary">
+                    </div>
+                </div>
+            </div>
+            <div class="layui-form-item">
+                    <label class="layui-form-label">options：</label>
+                    <div class="layui-input-block">
+                        <input name="ram" value="2" title="2G" type="checkbox" lay-skin="primary">
+                        <input name="ram" value="4" title="4G" type="checkbox" lay-skin="primary">
+                        <input name="ram" value="6" title="6G" type="checkbox" lay-skin="primary">
+                        <input name="ram" value="8" title="8G" type="checkbox" lay-skin="primary">
+                    </div>
+            </div>
+            <div class="layui-form-item">
+                <div class="layui-inline">
+                    <label class="layui-form-label">numerical：</label>
+                    <div class="layui-input-inline">
+                        <input name="numerical" value="true"  type="checkbox" lay-skin="primary">
+                    </div>
+                </div>
+                <div class="layui-inline">
+                    <label class="layui-form-label" for="unit">unit：</label>
+                    <div class="layui-input-inline">
+                        <input name="unit" id="unit" class="layui-input" type="text">
+                    </div>
+                </div>
+            </div>
+        </div>
+    </fieldset>
+
+    <fieldset class="layui-elem-field">
+        <legend>参数2</legend>
+        <div style="margin-top: 20px">
+            <div class="layui-form-item">
+                <div class="layui-inline">
+                    <label class="layui-form-label" for="k2">参数名称：</label>
+                    <div class="layui-input-inline">
+                        <input name="k" id="k2" class="layui-input" type="text">
+                    </div>
+                </div>
+                <div class="layui-inline">
+                    <label class="layui-form-label">searchable：</label>
+                    <div class="layui-input-inline">
+                        <input name="searchable" value="true"  type="checkbox" lay-skin="primary">
+                    </div>
+                </div>
+                <div class="layui-inline">
+                    <label class="layui-form-label">global：</label>
+                    <div class="layui-input-inline">
+                        <input name="global" value="true"  type="checkbox" lay-skin="primary">
+                    </div>
+                </div>
+            </div>
+            <div class="layui-form-item">
+                <label class="layui-form-label">options：</label>
+                <div class="layui-input-block">
+
+                </div>
+            </div>
+            <div class="layui-form-item">
+                <div class="layui-inline">
+                    <label class="layui-form-label">numerical：</label>
+                    <div class="layui-input-inline">
+                        <input name="numerical" value="true"  type="checkbox" lay-skin="primary">
+                    </div>
+                </div>
+                <div class="layui-inline">
+                    <label class="layui-form-label" for="unit2">unit：</label>
+                    <div class="layui-input-inline">
+                        <input name="unit" id="unit2" class="layui-input" type="text">
+                    </div>
+                </div>
+            </div>
+        </div>
+    </fieldset>
+
+</form>
 <!-- JS -->
 <script src="../../../comm/layer/layui.js"></script>
 <script src="../../js/item/Specification.js"></script>
