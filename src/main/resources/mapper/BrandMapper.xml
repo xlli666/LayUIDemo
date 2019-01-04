@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="com.example.demo.dao.BrandDao" >
+    <select id="selectBrand" resultType="com.example.demo.pojo.BrandDomain">
+        select * from tb_brand
+    </select>
+    <insert id="insertBrand" parameterType="com.example.demo.pojo.BrandDomain" useGeneratedKeys="true" keyProperty="id">
+        insert into tb_brand(name,image,letter) values(#{name},#{image},#{letter})
+    </insert>
+    <delete id="deleteBrand" parameterType="java.lang.Long">
+        delete from tb_brand where id=#{value}
+    </delete>
+</mapper>

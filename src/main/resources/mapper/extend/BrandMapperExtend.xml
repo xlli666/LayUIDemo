@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="com.example.demo.dao.BrandDao" >
+    <insert id="insertCategoryBrand">
+        insert into tb_category_brand values(#{categoryId},#{brandId})
+    </insert>
+    <delete id="deleteCategoryBrand" parameterType="java.lang.Long">
+        delete from tb_category_brand where brand_id=#{value}
+    </delete>
+</mapper>

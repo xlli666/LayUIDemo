@@ -7,12 +7,59 @@
     <link rel="stylesheet" href="../../../comm/layer/css/layui.css">
 </head>
 <body>
-<div>
-    <label for="name">名称</label><input id="name" type="text"><br>
-    <label for="letter">首字母</label><input id="letter" type="text"><br>
-    <label for="category">分类</label><input id="category" type="text"><br>
-    <button class="layui-btn" data-method="addBrandInfo">确认添加</button>
-</div>
+<form class="layui-form" action="">
+
+    <div class="layui-form-item">
+        <label class="layui-form-label" for="name">名称：</label>
+        <div class="layui-input-block" style="margin-right: 100px">
+            <input name="name" id="name" class="layui-input" type="text">
+        </div>
+    </div>
+
+    <div class="layui-form-item">
+        <label class="layui-form-label" for="letter">首字母：</label>
+        <div class="layui-input-inline">
+            <input name="letter" id="letter" class="layui-input" type="text" maxlength="1">
+        </div>
+    </div>
+
+    <div class="layui-form-item">
+        <label class="layui-form-label">分类：</label>
+        <div class="layui-input-block" style="margin-right: 100px">
+            <!-- 暂为实现多分类，各个分类使用下拉框动态加载 -->
+            <input name="category" value="1" title="手机" type="checkbox" lay-skin="primary" checked="">
+            <input name="category" value="2" title="通讯" type="checkbox" lay-skin="primary">
+            <input name="category" value="3" title="测试" type="checkbox" lay-skin="primary">
+            <!--
+            <input name="category" id="category" class="layui-input" type="number">-->
+            <!--
+            <select id="category" lay-search="">
+                <option value=""></option>
+                <option value="0">写作</option>
+                <option value="1">阅读</option>
+                <option value="2">电脑</option>
+                <option value="3">绘画</option>
+            </select>-->
+        </div>
+    </div>
+
+    <div class="layui-form-item">
+        <label class="layui-form-label" >LOGO：</label>
+        <div class="layui-input-block" style="margin-right: 100px">
+            <div class="layui-upload-drag" id="uploadLogo" style="padding: 0">
+                <img class="layui-upload-img" id="logoImage" src="../../../comm/img/uploadPlus.gif" width="300" height="100">
+            </div>
+        </div>
+    </div>
+
+    <div class="layui-form-item">
+        <div class="layui-input-block">
+            <input type="hidden" name="image" id="image">
+            <button class="layui-btn" lay-submit lay-filter="formBrandAdd">确认添加</button>
+            <button class="layui-btn layui-btn-primary" type="reset" >重置</button>
+        </div>
+    </div>
+</form>
 <!-- JS -->
 <script src="../../../comm/layer/layui.js"></script>
 <script src="../../../comm/js/comm-form.js"></script>

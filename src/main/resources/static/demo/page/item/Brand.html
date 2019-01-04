@@ -8,8 +8,18 @@
 </head>
 <body>
 <div>
-    <button class="layui-btn" data-method="brandForm">添加品牌</button>
+    <div>
+        <button class="layui-btn" data-method="brandForm">添加品牌</button>
+        <button class="layui-btn layui-btn-disabled" data-method="searchBrand" disabled="disabled">搜索</button>
+    </div>
+    <table id="brand" lay-filter="brand"></table>
+
 </div>
+<!-- 表格操作列 -->
+<script id="toolbar" type="text/html">
+    <a class="layui-btn layui-btn-xs" lay-event="edit">编辑</a>
+    <a class="layui-btn layui-btn-danger layui-btn-xs" lay-event="del">删除</a>
+</script>
 <!-- JS -->
 <script src="../../../comm/layer/layui.js"></script>
 <script src="../../../comm/js/comm-form.js"></script>
