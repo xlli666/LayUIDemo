@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="com.example.demo.dao.SpecificationDao" >
+    <select id="selectSpecification" resultType="com.example.demo.pojo.SpecificationDomain" parameterType="java.lang.Long">
+        select * from tb_specification where category_id=#{value}
+    </select>
+    <insert id="insertSpecification" parameterType="com.example.demo.pojo.SpecificationDomain">
+        insert into tb_specification values(#{categoryId},#{specifications})
+    </insert>
+</mapper>

@@ -12,7 +12,7 @@
         <label class="layui-form-label" for="category">商品类别<span style="color: red">*</span>：</label>
         <div class="layui-input-inline">
             <!-- 后续需要修改为动态加载 -->
-            <select name="category" id="category" lay-verify="required">
+            <select name="category" id="category" lay-verify="required" lay-filter="category">
                 <option value="">请选择商品类别</option>
                 <optgroup label="设备">
                     <option value="1">手机</option>
@@ -48,51 +48,59 @@
     </div>
 
     <fieldset class="layui-elem-field layui-field-title">
-        <legend>分组1：主体参数</legend>
+        <legend>分组1</legend>
+        <div class="layui-form-item">
+            <div class="layui-inline">
+                <label class="layui-form-label">组名称：</label>
+                <div class="layui-input-inline">
+                    <input name="group" class="layui-input" type="text">
+                </div>
+            </div>
+        </div>
     </fieldset>
     <fieldset class="layui-elem-field">
         <legend>参数1</legend>
         <div style="margin-top: 20px">
             <div class="layui-form-item">
                 <div class="layui-inline">
-                    <label class="layui-form-label" for="k">参数名称：</label>
+                    <label class="layui-form-label">参数名称：</label>
                     <div class="layui-input-inline">
-                        <input name="k" id="k" class="layui-input" type="text">
+                        <input name="group0k" class="layui-input" type="text">
                     </div>
                 </div>
                 <div class="layui-inline">
                     <label class="layui-form-label">searchable：</label>
                     <div class="layui-input-inline">
-                        <input name="searchable" value="true"  type="checkbox" lay-skin="primary">
+                        <input name="group0searchable0" value="true"  type="checkbox" lay-skin="primary">
                     </div>
                 </div>
                 <div class="layui-inline">
                     <label class="layui-form-label">global：</label>
                     <div class="layui-input-inline">
-                        <input name="global" value="true"  type="checkbox" lay-skin="primary">
+                        <input name="group0global0" value="true"  type="checkbox" lay-skin="primary">
                     </div>
                 </div>
             </div>
             <div class="layui-form-item">
                     <label class="layui-form-label">options：</label>
                     <div class="layui-input-block">
-                        <input name="ram" value="2" title="2G" type="checkbox" lay-skin="primary">
-                        <input name="ram" value="4" title="4G" type="checkbox" lay-skin="primary">
-                        <input name="ram" value="6" title="6G" type="checkbox" lay-skin="primary">
-                        <input name="ram" value="8" title="8G" type="checkbox" lay-skin="primary">
+                        <input name="group0options0" value="2" title="2G" type="checkbox" lay-skin="primary">
+                        <input name="group0options0" value="4" title="4G" type="checkbox" lay-skin="primary">
+                        <input name="group0options0" value="6" title="6G" type="checkbox" lay-skin="primary">
+                        <input name="group0options0" value="8" title="8G" type="checkbox" lay-skin="primary">
                     </div>
             </div>
             <div class="layui-form-item">
                 <div class="layui-inline">
                     <label class="layui-form-label">numerical：</label>
                     <div class="layui-input-inline">
-                        <input name="numerical" value="true"  type="checkbox" lay-skin="primary">
+                        <input name="group0numerical0" value="true"  type="checkbox" lay-skin="primary">
                     </div>
                 </div>
                 <div class="layui-inline">
-                    <label class="layui-form-label" for="unit">unit：</label>
+                    <label class="layui-form-label">unit：</label>
                     <div class="layui-input-inline">
-                        <input name="unit" id="unit" class="layui-input" type="text">
+                        <input name="group0unit0" class="layui-input" type="text">
                     </div>
                 </div>
             </div>
@@ -104,21 +112,21 @@
         <div style="margin-top: 20px">
             <div class="layui-form-item">
                 <div class="layui-inline">
-                    <label class="layui-form-label" for="k2">参数名称：</label>
+                    <label class="layui-form-label">参数名称：</label>
                     <div class="layui-input-inline">
-                        <input name="k" id="k2" class="layui-input" type="text">
+                        <input name="group0k" class="layui-input" type="text">
                     </div>
                 </div>
                 <div class="layui-inline">
                     <label class="layui-form-label">searchable：</label>
                     <div class="layui-input-inline">
-                        <input name="searchable" value="true"  type="checkbox" lay-skin="primary">
+                        <input name="group0searchable1" value="true"  type="checkbox" lay-skin="primary">
                     </div>
                 </div>
                 <div class="layui-inline">
                     <label class="layui-form-label">global：</label>
                     <div class="layui-input-inline">
-                        <input name="global" value="true"  type="checkbox" lay-skin="primary">
+                        <input name="group0global1" value="true"  type="checkbox" lay-skin="primary">
                     </div>
                 </div>
             </div>
@@ -132,13 +140,119 @@
                 <div class="layui-inline">
                     <label class="layui-form-label">numerical：</label>
                     <div class="layui-input-inline">
-                        <input name="numerical" value="true"  type="checkbox" lay-skin="primary">
+                        <input name="group0numerical1" value="true"  type="checkbox" lay-skin="primary">
                     </div>
                 </div>
                 <div class="layui-inline">
-                    <label class="layui-form-label" for="unit2">unit：</label>
+                    <label class="layui-form-label">unit：</label>
                     <div class="layui-input-inline">
-                        <input name="unit" id="unit2" class="layui-input" type="text">
+                        <input name="group0unit1" class="layui-input" type="text">
+                    </div>
+                </div>
+            </div>
+        </div>
+    </fieldset>
+
+    <fieldset class="layui-elem-field layui-field-title">
+        <legend>分组2</legend>
+        <div class="layui-form-item">
+            <div class="layui-inline">
+                <label class="layui-form-label">组名称：</label>
+                <div class="layui-input-inline">
+                    <input name="group" class="layui-input" type="text">
+                </div>
+            </div>
+        </div>
+    </fieldset>
+    <fieldset class="layui-elem-field">
+        <legend>参数1</legend>
+        <div style="margin-top: 20px">
+            <div class="layui-form-item">
+                <div class="layui-inline">
+                    <label class="layui-form-label">参数名称：</label>
+                    <div class="layui-input-inline">
+                        <input name="group1k" class="layui-input" type="text">
+                    </div>
+                </div>
+                <div class="layui-inline">
+                    <label class="layui-form-label">searchable：</label>
+                    <div class="layui-input-inline">
+                        <input name="group1searchable0" value="true"  type="checkbox" lay-skin="primary">
+                    </div>
+                </div>
+                <div class="layui-inline">
+                    <label class="layui-form-label">global：</label>
+                    <div class="layui-input-inline">
+                        <input name="group1global0" value="true"  type="checkbox" lay-skin="primary">
+                    </div>
+                </div>
+            </div>
+            <div class="layui-form-item">
+                <label class="layui-form-label">options：</label>
+                <div class="layui-input-block">
+                    <input name="group1options0" value="2" title="2G" type="checkbox" lay-skin="primary">
+                    <input name="group1options0" value="4" title="4G" type="checkbox" lay-skin="primary">
+                    <input name="group1options0" value="6" title="6G" type="checkbox" lay-skin="primary">
+                    <input name="group1options0" value="8" title="8G" type="checkbox" lay-skin="primary">
+                </div>
+            </div>
+            <div class="layui-form-item">
+                <div class="layui-inline">
+                    <label class="layui-form-label">numerical：</label>
+                    <div class="layui-input-inline">
+                        <input name="group1numerical0" value="true"  type="checkbox" lay-skin="primary">
+                    </div>
+                </div>
+                <div class="layui-inline">
+                    <label class="layui-form-label">unit：</label>
+                    <div class="layui-input-inline">
+                        <input name="group1unit0" class="layui-input" type="text">
+                    </div>
+                </div>
+            </div>
+        </div>
+    </fieldset>
+
+    <fieldset class="layui-elem-field">
+        <legend>参数2</legend>
+        <div style="margin-top: 20px">
+            <div class="layui-form-item">
+                <div class="layui-inline">
+                    <label class="layui-form-label">参数名称：</label>
+                    <div class="layui-input-inline">
+                        <input name="group1k" class="layui-input" type="text">
+                    </div>
+                </div>
+                <div class="layui-inline">
+                    <label class="layui-form-label">searchable：</label>
+                    <div class="layui-input-inline">
+                        <input name="group1searchable1" value="true"  type="checkbox" lay-skin="primary">
+                    </div>
+                </div>
+                <div class="layui-inline">
+                    <label class="layui-form-label">global：</label>
+                    <div class="layui-input-inline">
+                        <input name="group1global1" value="true"  type="checkbox" lay-skin="primary">
+                    </div>
+                </div>
+            </div>
+            <div class="layui-form-item">
+                <label class="layui-form-label">options：</label>
+                <div class="layui-input-block">
+
+                </div>
+            </div>
+            <div class="layui-form-item">
+                <div class="layui-inline">
+                    <label class="layui-form-label">numerical：</label>
+                    <div class="layui-input-inline">
+                        <input name="group1numerical1" value="true"  type="checkbox" lay-skin="primary">
+                    </div>
+                </div>
+                <div class="layui-inline">
+                    <label class="layui-form-label">unit：</label>
+                    <div class="layui-input-inline">
+                        <input name="group1unit1" class="layui-input" type="text">
                     </div>
                 </div>
             </div>
