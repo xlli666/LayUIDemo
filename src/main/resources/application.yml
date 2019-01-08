@@ -43,6 +43,10 @@ mybatis:
   type-aliases-package: com.example.demo.pojo
   configuration:
     map-underscore-to-camel-case: true
+##    log-impl: org.apache.ibatis.logging.stdout.StdOutImpl
+logging:
+  level:
+    com.example.demo.dao: DEBUG
 #pagehelper分页插件
 pagehelper:
     helperDialect: mysql
