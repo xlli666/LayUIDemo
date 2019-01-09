@@ -5,13 +5,14 @@ layui.use('form',function () {
     var category = '';
 
     form.on('submit(formSpecQuery)', function (data) {
-        layer.alert(JSON.stringify(data.field));
+        //layer.alert(JSON.stringify(data.field));
         $.ajax({
             type: 'post',
             url: '/item/specifications/query',
             data: data.field,
             success: function (data) {
                 $("#result").val(data.specifications);
+                console.log(JSON.parse(data.specifications));
             },
             error: function (msg) {
                 alert(msg);
