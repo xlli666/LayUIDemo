@@ -1,7 +1,7 @@
 package com.example.demo.service.impl;
 
 import com.example.demo.dao.BrandDao;
-import com.example.demo.pojo.BrandDomain;
+import com.example.demo.pojo.Brand;
 import com.example.demo.service.BrandService;
 import com.github.pagehelper.PageHelper;
 import com.github.pagehelper.PageInfo;
@@ -22,15 +22,15 @@ public class BrandServiceImpl implements BrandService {
     }
 
     @Override
-    public PageInfo<BrandDomain> findBrand(int pageNum, int pageSize) {
+    public PageInfo<Brand> findBrand(int pageNum, int pageSize) {
         PageHelper.startPage(pageNum,pageSize);
-        List<BrandDomain> brand = brandDao.selectBrand();
-        return new PageInfo<>(brand);
+        List<Brand> brandList = brandDao.selectBrand();
+        return new PageInfo<>(brandList);
     }
 
     @Override
     @Transactional
-    public void saveBrand(BrandDomain brand, Long[] categoryId) {
+    public void saveBrand(Brand brand, Long[] categoryId) {
         brandDao.insertBrand(brand);
         for (Long cid:categoryId) {
             brandDao.insertCategoryBrand(cid, brand.getId());

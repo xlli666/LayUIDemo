@@ -1,6 +1,6 @@
 package com.example.demo.controller.back;
 
-import com.example.demo.pojo.BrandDomain;
+import com.example.demo.pojo.Brand;
 import com.example.demo.service.BrandService;
 import com.example.demo.util.LayUISuccess;
 import com.github.pagehelper.PageInfo;
@@ -34,7 +34,7 @@ public class BrandController {
     public Object findBrand(@RequestParam(name = "page", required = false, defaultValue = "1") int pageNum,
                             @RequestParam(name = "limit", required = false, defaultValue = "1") int pageSize) {
         System.out.println("**********query*********");
-        PageInfo<BrandDomain> helperBrand = brandService.findBrand(pageNum, pageSize);
+        PageInfo<Brand> helperBrand = brandService.findBrand(pageNum, pageSize);
         return LayUISuccess.tableData(helperBrand.getTotal(), helperBrand.getList());
     }
 
@@ -61,7 +61,7 @@ public class BrandController {
     @RequestMapping("/add")
     @ResponseBody
     public Object addBrand(@RequestParam(value = "category[]") Long[] category,
-                           BrandDomain brand) {
+                           Brand brand) {
         System.out.println("***********add***********");
         brandService.saveBrand(brand, category);
         return LayUISuccess.formSubResData("OK");
@@ -75,7 +75,7 @@ public class BrandController {
      */
     @RequestMapping("/delete")
     @ResponseBody
-    public Object deleteBrand(BrandDomain brand) {
+    public Object deleteBrand(Brand brand) {
         System.out.println("**********delete**********");
         brandService.removeBrand(brand.getId());
         return LayUISuccess.formSubResData("OK");

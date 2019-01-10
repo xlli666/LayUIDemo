@@ -1,11 +1,10 @@
 package com.example.demo.controller.back;
 
-import com.example.demo.pojo.SpecificationDomain;
+import com.example.demo.pojo.Specification;
 import com.example.demo.service.SpecificationService;
 import com.example.demo.util.LayUISuccess;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
-import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.ResponseBody;
 
@@ -28,7 +27,7 @@ public class SpecificationController {
 
     @RequestMapping("add")
     @ResponseBody
-    public Object specAdd(SpecificationDomain specDomain){
+    public Object specAdd(Specification specDomain){
         specificationService.saveSpecification(specDomain);
         return LayUISuccess.formSubResData("OK");
     }

@@ -2,7 +2,7 @@ package com.example.demo.pojo;
 
 import java.util.Date;
 
-public class SpuDomain {
+public class Spu {
     private Long id;
     private Long brandId;
     private Long cid1;// 1级分类

@@ -1,6 +1,6 @@
 package com.example.demo.pojo;
 
-public class BrandDomain {
+public class Brand {
     private Long id;
     private String name;
     private String image;

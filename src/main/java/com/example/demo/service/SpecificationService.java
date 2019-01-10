@@ -1,8 +1,8 @@
 package com.example.demo.service;
 
-import com.example.demo.pojo.SpecificationDomain;
+import com.example.demo.pojo.Specification;
 
 public interface SpecificationService {
-    SpecificationDomain specificationInfo(Long cid);
-    void saveSpecification(SpecificationDomain specDomain);
+    Specification specificationInfo(Long cid);
+    void saveSpecification(Specification specDomain);
 }

@@ -1,7 +1,7 @@
 package com.example.demo.service.impl;
 
 import com.example.demo.dao.SpecificationDao;
-import com.example.demo.pojo.SpecificationDomain;
+import com.example.demo.pojo.Specification;
 import com.example.demo.service.SpecificationService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
@@ -17,12 +17,12 @@ public class SpecificationServiceImpl implements SpecificationService {
     }
 
     @Override
-    public SpecificationDomain specificationInfo(Long cid) {
+    public Specification specificationInfo(Long cid) {
         return specificationDao.selectSpecification(cid);
     }
 
     @Override
-    public void saveSpecification(SpecificationDomain specDomain) {
+    public void saveSpecification(Specification specDomain) {
         specificationDao.insertSpecification(specDomain);
     }
 }

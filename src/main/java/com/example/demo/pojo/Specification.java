@@ -1,6 +1,6 @@
 package com.example.demo.pojo;
 
-public class SpecificationDomain {
+public class Specification {
     private Long categoryId;
     private String specifications;
 
