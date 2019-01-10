@@ -9,4 +9,5 @@ import java.util.List;
 @Component("spuDao")
 public interface SpuDao {
     List<Spu> selectSpuBy(@Param("saleable") Boolean saleable, @Param("keyWord") String keyWord);
+    void insertSpu(Spu spu);
 }

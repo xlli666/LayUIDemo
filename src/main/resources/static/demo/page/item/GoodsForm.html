@@ -8,49 +8,73 @@
 </head>
 <body>
 <form class="layui-form" action="">
-
+    <fieldset class="layui-elem-field layui-field-title">
+        <legend>基本信息</legend>
+    </fieldset>
     <div class="layui-form-item">
-        <label class="layui-form-label" for="name">名称：</label>
-        <div class="layui-input-block" style="margin-right: 100px">
-            <input name="name" id="name" class="layui-input" type="text">
+        <div class="layui-inline">
+            <label class="layui-form-label" for="category">分类：</label>
+            <div class="layui-input-inline">
+                <!-- 后续需要修改为动态加载 -->
+                <select name="category" id="category" lay-filter="category">
+                    <option value="">请选择商品类别</option>
+                    <optgroup label="设备">
+                        <option value="1">手机</option>
+                        <option value="2">通讯</option>
+                    </optgroup>
+                    <optgroup label="测试">
+                        <option value="3">测试</option>
+                    </optgroup>
+                </select>
+            </div>
         </div>
-    </div>
-
-    <div class="layui-form-item">
-        <label class="layui-form-label" for="letter">首字母：</label>
-        <div class="layui-input-inline">
-            <input name="letter" id="letter" class="layui-input" type="text" maxlength="1">
-        </div>
-    </div>
-
-    <div class="layui-form-item">
-        <label class="layui-form-label">分类：</label>
-        <div class="layui-input-block" style="margin-right: 100px">
-            <!-- 暂未实现多分类，各个分类使用下拉框动态加载 -->
-            <input name="category" value="1" title="手机" type="checkbox" lay-skin="primary" checked="">
-            <input name="category" value="2" title="通讯" type="checkbox" lay-skin="primary">
-            <input name="category" value="3" title="测试" type="checkbox" lay-skin="primary">
-            <!--
-            <input name="category" id="category" class="layui-input" type="number">-->
-            <!--
-            <select id="category" lay-search="">
-                <option value=""></option>
-                <option value="0">写作</option>
-                <option value="1">阅读</option>
-                <option value="2">电脑</option>
-                <option value="3">绘画</option>
-            </select>-->
-        </div>
-    </div>
-
-    <div class="layui-form-item">
-        <label class="layui-form-label" >LOGO：</label>
-        <div class="layui-input-block" style="margin-right: 100px">
-            <div class="layui-upload-drag" id="uploadLogo">
-                <img class="layui-upload-img" id="logoImage" src="../../../comm/img/uploadPlus.gif" width="300" height="100">
+        <div class="layui-inline">
+            <label class="layui-form-label" for="brand">品牌：</label>
+            <div class="layui-input-inline">
+                <!-- 后续需要修改为动态加载 -->
+                <select name="brand" id="brand" lay-filter="brand">
+                    <option value="">请选择品牌</option>
+                    <option value="1">华为</option>
+                    <option value="2">小米</option>
+                    <option value="3">中兴</option>
+                </select>
             </div>
         </div>
     </div>
+    <div class="layui-form-item">
+        <div class="layui-inline">
+            <label class="layui-form-label" for="title">标题：</label>
+            <div class="layui-input-inline">
+                <input name="title" id="title" class="layui-input" type="text">
+            </div>
+        </div>
+        <div class="layui-inline">
+            <label class="layui-form-label" for="subtitle">子标题：</label>
+            <div class="layui-input-inline">
+                <input name="subtitle" id="subtitle" class="layui-input" type="text">
+            </div>
+        </div>
+    </div>
+
+    <fieldset class="layui-elem-field layui-field-title">
+        <legend>商品描述</legend>
+    </fieldset>
+    <div style="margin: 10px;">
+        <textarea class="layui-textarea" name="description" id="description" placeholder="编辑商品描述信息"></textarea>
+    </div>
+
+    <fieldset class="layui-elem-field layui-field-title">
+        <legend>规格参数</legend>
+    </fieldset>
+    <!-- 需要根据商品类别查询规格参数模板，根据global=true显示不同内容 -->
+
+    <fieldset class="layui-elem-field layui-field-title">
+        <legend>SKU属性</legend>
+    </fieldset>
+    <!-- 需要根据商品类别查询规格参数模板，根据global=false显示不同内容 -->
+
+    <!-- 选择SKU后，动态生成SKU笛卡尔乘积对应的具体商品，操作库存、价格、图片等信息(暂未开发)-->
+    <!-- 多图上传(暂未开发) -->
 
     <div class="layui-form-item">
         <div class="layui-input-block">

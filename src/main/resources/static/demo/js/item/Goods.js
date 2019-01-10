@@ -1,11 +1,61 @@
-layui.use(['layer','table','upload','form'],function () {
+layui.use(['layer','table','upload','form','layedit'],function () {
     var $ = layui.jquery;
     var layer = layui.layer;
     var table = layui.table;
     var upload = layui.upload;
     var form = layui.form;
+    var layedit = layui.layedit;
 
-    // 页面Brand.html，表格处理
+    // 构建一个默认的编辑器
+    var index = layedit.build('description');
+
+    // 选择分类后渲染规格参数和SKU属性(暂时获取到了数据，缺少前端渲染)
+    form.on('select(category)',function (data) {
+        var requestData = {
+            category: data.value
+        };
+        $.ajax({
+            type: 'post',
+            url: '/item/specifications/query',
+            data: requestData,
+            success: function (data) {
+                var jsonData = JSON.parse(data.specifications);
+                // 保存全部规格
+                //this.specifications = jsonData;
+                // 对特有规格进行筛选
+                var temp = [];
+                jsonData.forEach(function(params){
+                    params.param.forEach(function(values) {
+                        var jsonK = values.k;
+                        var jsonOptions = values.options;
+                        var jsonSelected = values.global;
+                        if (!jsonSelected) {
+                            temp.push({
+                                k:jsonK,
+                                options:jsonOptions,
+                                selected:[]
+                            })
+                        }
+                    })
+                });
+                //this.specialSpecs = temp;
+                console.log(temp);
+            },
+            error: function (msg) {
+                alert(msg);
+            },
+            dataType: 'json'
+        });
+    });
+
+    // 表单提交
+    form.on('submit(formGoodsAdd)', function (data) {
+        alert(layedit.getContent(index)); // 获取编辑器内容
+        //alert(layedit.getText(index)); // 获取编辑器纯文本内容
+        //alert(layedit.getSelection(index)); // 获取选中内容
+    });
+
+    // 页面Goods.html，表格处理
     table.render({
         elem: '#goods',
         url: '/item/goods/spu/page',
@@ -33,19 +83,7 @@ layui.use(['layer','table','upload','form'],function () {
         console.log(data);
         if(obj.event === 'del'){
             layer.confirm('真的删除行么', function(index){
-                $.ajax({
-                    type: 'post',
-                    url: '/item/brand/delete',
-                    data: data,
-                    success: function (data) {
-                        table.reload('forReload',{page:{curr:1}});// 重新加载表格
-                        console.log(data);
-                    },
-                    error: function (msg) {
-                        alert(msg);
-                    },
-                    dataType: 'json'
-                });
+                obj.del();
                 layer.close(index);
             });
         } else if(obj.event === 'edit'){

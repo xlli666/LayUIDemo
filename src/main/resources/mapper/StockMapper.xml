@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="com.example.demo.dao.StockDao" >
+    <insert id="insertStock" parameterType="com.example.demo.pojo.Stock">
+        insert into tb_stock(skuId, stock)
+        values(#{skuId}, #{stock})
+    </insert>
+    <select id="selectStockById" parameterType="java.lang.Long" resultType="com.example.demo.pojo.Stock">
+        select * from tb_stock where id = #{value}
+    </select>
+</mapper>

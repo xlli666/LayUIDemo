@@ -1,6 +1,6 @@
 package com.example.demo.controller.back;
 
-import com.example.demo.pojo.GoodsDomain;
+import com.example.demo.pojo.Goods;
 import com.example.demo.service.GoodsService;
 import com.example.demo.util.LayUISuccess;
 import com.github.pagehelper.PageInfo;
@@ -29,7 +29,30 @@ public class GoodsController {
                              @RequestParam(name = "key", required = false) String keyWord){
         System.out.println("##########query##########");
         System.out.println("key: " + keyWord +", saleable: " + saleable +", pageNum: " + pageNum +", pageSize: " + pageSize);
-        PageInfo<GoodsDomain> helperGoods = goodsService.querySpuByPageAndSort(pageNum, pageSize, saleable, keyWord);
+        PageInfo<Goods> helperGoods = goodsService.querySpuByPageAndSort(pageNum, pageSize, saleable, keyWord);
         return LayUISuccess.tableData(helperGoods.getTotal(), helperGoods.getList());
+    }
+
+    // 以下方法暂未验证
+    @RequestMapping("/add")
+    @ResponseBody
+    public Object saveGoods(Goods goods){
+        System.out.println("##########add##########");
+        //goodsService.saveGoods(goods);
+        return LayUISuccess.formSubResData("OK");
+    }
+
+    @RequestMapping("/spu/detail")
+    @ResponseBody
+    public Object querySpuDetailById(Long spuId){
+        System.out.println("##########query spuDetail##########");
+        return goodsService.querySpuDetailById(spuId);
+    }
+
+    @RequestMapping("/sku/list")
+    @ResponseBody
+    public Object querySkuBySpuId(Long spuId){
+        System.out.println("##########query skuList##########");
+        return goodsService.querySkuBySpuId(spuId);
     }
 }
