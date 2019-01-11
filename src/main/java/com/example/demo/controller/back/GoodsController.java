@@ -21,6 +21,14 @@ public class GoodsController {
         this.goodsService = goodsService;
     }
 
+    /**
+     * 根据关键词查询SPU分页数据
+     * @param pageNum 起始页
+     * @param pageSize 每页数据
+     * @param saleable 是否上架
+     * @param keyWord 关键词(title)
+     * @return SPU分页数据
+     */
     @RequestMapping("/spu/page")
     @ResponseBody
     public Object queryGoods(@RequestParam(name = "page", defaultValue = "1") int pageNum,
@@ -34,6 +42,11 @@ public class GoodsController {
     }
 
     // 以下方法暂未验证
+    /**
+     * 添加商品
+     * @param goods 商品数据(品牌、分类、详细、SKU列表等)
+     * @return 添加结果
+     */
     @RequestMapping("/add")
     @ResponseBody
     public Object saveGoods(Goods goods){
@@ -42,6 +55,11 @@ public class GoodsController {
         return LayUISuccess.formSubResData("OK");
     }
 
+    /**
+     * 根据SPU_ID查询SPU明细
+     * @param spuId 主键SPU_ID
+     * @return SPU明细数据
+     */
     @RequestMapping("/spu/detail")
     @ResponseBody
     public Object querySpuDetailById(Long spuId){
@@ -49,6 +67,11 @@ public class GoodsController {
         return goodsService.querySpuDetailById(spuId);
     }
 
+    /**
+     * 根据SPU_ID查询SKU列表数据
+     * @param spuId 查询条件SPU_ID
+     * @return SKU列表数据
+     */
     @RequestMapping("/sku/list")
     @ResponseBody
     public Object querySkuBySpuId(Long spuId){
